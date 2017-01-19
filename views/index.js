@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
-var App = React.createClass({
+var Parent = React.createClass({
 
 	render() {
 		return (
@@ -14,5 +14,5 @@ var App = React.createClass({
 
 })
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<Parent />, document.getElementById('root'))
 

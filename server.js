@@ -17,7 +17,7 @@ app.get('/*', function(req, res) {
 })
 
 db.sequelize.sync().then(function() {
-  app.listen(9000)
+  app.listen(7000)
 })
 
 module.exports = app
