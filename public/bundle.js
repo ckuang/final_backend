@@ -37479,7 +37479,11 @@
 	    _jquery2.default.ajax({
 	      url: '/api/review',
 	      type: 'POST',
-	      data: this.state,
+	      data: {
+	        name: this.props.name,
+	        neighborhood: this.props.neighborhood,
+	        address: this.props.address,
+	        cuisine: this.props.cuisine },
 	      success: function success(data) {
 	        console.log(data);
 	      }
