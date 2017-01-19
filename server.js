@@ -8,14 +8,15 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
 app.use(express.static('public'))
 
+app.use('/api', require('./router/all-routes'))
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/views/index.html'))
 })
 
-
 db.sequelize.sync().then(function() {
-  app.listen(3000)
+	console.log('Listening on 3000.')
+	app.listen(3000)
 })
 
 module.exports = app
