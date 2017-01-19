@@ -81,7 +81,7 @@ describe('Yalp', () => {
   });
 
   describe('/POST review route', () => {
-      it('server should have a /api/restaurant/:id route', (done) => {
+      it('server should have a /api/review route', (done) => {
         let review = reviews[0]
         chai.request(server)
             .post('/api/review')
