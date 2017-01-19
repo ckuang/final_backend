@@ -1,20 +1,21 @@
 {
   "development": {
-    "username": "Kuang",
+    "username": "michaeldinnall",
     "password": null,
     "database": "yalp",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "Kuang",
+    "username": "michaeldinnall",
     "password": null,
     "database": "yalp",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
-    "username": "Kuang",
+    "username": "michaeldinnall",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
