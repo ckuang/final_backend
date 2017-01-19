@@ -1,12 +1,16 @@
-var express = require('express')
+var express = require('express');
 var app = express()
-var bodyparser = require('body-parser')
+var bodyparser = require('body-parser');
 var path = require('path')
-var db = require('./models')
+var db = require('./models');
+
+var router = require('./routes');
 
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json())
-app.use(express.static('public'))
+app.use(bodyparser.json());
+app.use(express.static('views/public'));
+
+app.use('/api', router);
 
 
 app.get('/*', function(req, res) {
@@ -15,7 +19,7 @@ app.get('/*', function(req, res) {
 
 
 db.sequelize.sync().then(function() {
-  app.listen(3000)
+  app.listen(4000,()=>console.log('listening on port 4000'))
 })
 
-module.exports = app
+module.exports = app;

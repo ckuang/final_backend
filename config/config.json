@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "Kuang",
+    "username": "c4q-ac26",
     "password": null,
-    "database": "yalp",
+    "database": "Yalp",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "Kuang",
+    "username": "c4q-ac26",
     "password": null,
-    "database": "yalp",
+    "database": "Yalp",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "Kuang",
+    "username": "c4q-ac26",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",

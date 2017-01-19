@@ -3,14 +3,14 @@ let review1 = {
     description: "The lunch special is amazing! V authentic.",
     date: "2017-01-12",
     RestaurantId: 1
-}
+};
 
 let review2 = {
     rating: 5,
     description: "My favorite Japanese spot in the city.",
     date: "2016-12-25",
     RestaurantId: 1
-}
+};
 
 let review3 = {
     rating: 4,
@@ -33,4 +33,4 @@ let review5 = {
     RestaurantId: 4
 }
 
-module.exports = [review1, review2, review3, review4, review5]
+module.exports = [review1, review2, review3, review4, review5];

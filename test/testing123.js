@@ -12,14 +12,14 @@ let should = chai.should();
 
 let restaurants = require('../seed/restaurant.js')
 let reviews = require('../seed/review.js')
-let seedFunction = require('../seed')
+let seedFunction = require('../seed/index')
 
 chai.use(chaiHttp);
 //Our parent block
 describe('Yalp', () => {
     beforeEach((done) => { //Before each test we empty the database
-      models.sequelize.sync({force: true}).then(function() {
-        seedFunction()
+      models.sequelize.sync({force: true}).then(()=> {
+          seedFunction();
         done();
       })
     });
@@ -64,7 +64,7 @@ describe('Yalp', () => {
 
   describe('/POST restaurant functionality', () => {
       it('route should POST a restaurant', (done) => {
-        let restaurant = restaurants[1]
+        let restaurant = restaurants[1];
         chai.request(server)
             .post('/api/restaurants')
             .send(restaurant)
@@ -81,8 +81,14 @@ describe('Yalp', () => {
   });
 
   describe('/POST review route', () => {
-      it('server should have a /api/restaurant/:id route', (done) => {
-        let review = reviews[0]
+      it('server should have a /api/review/ route', (done) => {
+        // let review = reviews[0]
+          let review = {
+              rating: 5,
+              description: "The lunch special is amazing! V authentic.",
+              date: "2017-01-12",
+              RestaurantId: 1
+          };
         chai.request(server)
             .post('/api/review')
             .send(review)
@@ -95,7 +101,13 @@ describe('Yalp', () => {
 
   describe('/POST review functionality', () => {
       it('route should POST a review ', (done) => {
-        let review = reviews[0]
+        // let review = reviews[0];
+          let review = {
+              rating: 5,
+              description: "The lunch special is amazing! V authentic.",
+              date: "2017-01-12",
+              RestaurantId: 1
+          };
         chai.request(server)
             .post('/api/review')
             .send(review)
@@ -110,8 +122,8 @@ describe('Yalp', () => {
   });
 
 
-  describe('/GET restaurant route', () => {
-      it('server should have a /api/restaurant/:id GET route', (done) => {
+  describe('/GET restaurants route', () => {
+      it('server should have a /api/restaurants/:id GET route', (done) => {
         chai.request(server)
             .get('/api/restaurants/1')
             .end((err, res) => {
@@ -121,7 +133,7 @@ describe('Yalp', () => {
       });
   });
 
-  describe('/GET restaurant functionality', () => {
+  describe('/GET restaurants functionality', () => {
       it('route should GET a single restaurant along with all its reviews', (done) => {
         chai.request(server)
             .get('/api/restaurants/1')
