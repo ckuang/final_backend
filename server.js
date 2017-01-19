@@ -3,11 +3,18 @@ var app = express()
 var bodyparser = require('body-parser')
 var path = require('path')
 var db = require('./models')
+var routes = require('./routes')
+var restaurantRouterFile = routes.restaurantRouterFile
+var restaurantsRouterFile = routes.restaurantsRouterFile
+var reviewRouterFile = routes.reviewRouterFile
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
 app.use(express.static('public'))
 
+app.use('/api/restaurant', restaurantRouterFile)
+app.use('/api/restaurants', restaurantsRouterFile)
+app.use('/api/review', reviewRouterFile)
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/views/index.html'))
@@ -16,6 +23,7 @@ app.get('/*', function(req, res) {
 
 db.sequelize.sync().then(function() {
   app.listen(3000)
+  console.log('Server is running on http://localhost:3000')
 })
 
 module.exports = app

@@ -81,7 +81,7 @@ describe('Yalp', () => {
   });
 
   describe('/POST review route', () => {
-      it('server should have a /api/restaurant/:id route', (done) => {
+      it('server should have a /api/review route', (done) => {
         let review = reviews[0]
         chai.request(server)
             .post('/api/review')
@@ -113,7 +113,7 @@ describe('Yalp', () => {
   describe('/GET restaurant route', () => {
       it('server should have a /api/restaurant/:id GET route', (done) => {
         chai.request(server)
-            .get('/api/restaurants/1')
+            .get('/api/restaurant/1')
             .end((err, res) => {
                 res.should.have.status(200);
               done();
@@ -124,7 +124,7 @@ describe('Yalp', () => {
   describe('/GET restaurant functionality', () => {
       it('route should GET a single restaurant along with all its reviews', (done) => {
         chai.request(server)
-            .get('/api/restaurants/1')
+            .get('/api/restaurant/1')
             .end((err, res) => {
                 res.body.should.be.a('object');
                 res.body.should.have.property('name');
