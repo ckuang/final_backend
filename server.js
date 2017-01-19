@@ -3,10 +3,13 @@ var app = express()
 var bodyparser = require('body-parser')
 var path = require('path')
 var db = require('./models')
+const routes = require('./routes')
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
 app.use(express.static('public'))
+
+app.use('/api', routes)
 
 
 app.get('/*', function(req, res) {
