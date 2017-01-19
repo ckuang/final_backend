@@ -5,7 +5,6 @@ let hasaki = {
   cuisine: "Japanese",
   cost: 3
 }
-
 let congeevillage = {
   name: "Congee Village",
   neighborhood: "Lower East Side",

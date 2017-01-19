@@ -1,19 +1,21 @@
-let restaurants = require('./restaurant.js')
-let reviews = require('./review.js')
-let Restaurant = require('../models').Restaurant
-let Review = require('../models').Review
+let Restaurant = require('../backend/routes/routes.js');
+let Review = require('../backend/routes/routes.js');
 
-const seedyFunction = () => {
-  // Restaurant.create(restaurants[0])
-  // Restaurant.create(restaurants[1])
-  // Restaurant.create(restaurants[2])
-  // Restaurant.create(restaurants[3])
-  //
-  // Review.create(reviews[0])
+
+let Restaurants = require('../backend/models').Restaurant
+let Reviews = require('../backend/models').Review
+
+const seedFunction = () => {
+  // Restaurant.create(Restaurants[1])
+  // Restaurant.create(Restaurants[2])
+  // Restaurant.create(Restaurants[3])
+
+
+  // Review.create(Reviews[0])
   // Review.create(reviews[1])
   // Review.create(reviews[2])
   // Review.create(reviews[3])
   // Review.create(reviews[4])
-}
+} 
 
-module.exports = seedyFunction
+module.exports = seedFunction
