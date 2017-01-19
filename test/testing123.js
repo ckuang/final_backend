@@ -19,6 +19,7 @@ chai.use(chaiHttp);
 describe('Yalp', () => {
     beforeEach((done) => { //Before each test we empty the database
       models.sequelize.sync({force: true}).then(function() {
+        //models.Sync()
         seedFunction()
         done();
       })
