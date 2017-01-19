@@ -23,7 +23,7 @@ describe('Yalp', () => {
         done();
       })
     });
-/*
+ /*
   * Test the /GET route
   */
   describe('/GET restaurants route', () => {
