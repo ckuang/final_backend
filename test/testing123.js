@@ -84,7 +84,7 @@ describe('Yalp', () => {
       it('server should have a /api/restaurant/:id route', (done) => {
         let review = reviews[0]
         chai.request(server)
-            .post('/api/review')
+            .post('/api/restaurants/:id')
             .send(review)
             .end((err, res) => {
                 res.should.have.status(200);
@@ -97,7 +97,7 @@ describe('Yalp', () => {
       it('route should POST a review ', (done) => {
         let review = reviews[0]
         chai.request(server)
-            .post('/api/review')
+            .post('/api/restaurant/:id')
             .send(review)
             .end((err, res) => {
                 res.body.should.be.a('object');
