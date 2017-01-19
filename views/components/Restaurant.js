@@ -43,16 +43,15 @@ const Restaurant = React.createClass({
         console.log('reviews:',this.state.Reviews);
         return (
             <div>
-                <p>Restaurant :{this.state.name}</p>
                 {this.state.restaurantInfo ?
                     <div>
-                        <p>name: {this.state.restaurantInfo.name}</p>
-                        <p>neighborhood: {this.state.restaurantInfo.neighborhood}</p>
-                        <p>cuisine: {this.state.restaurantInfo.cuisine}</p>
+                        <h2>Restaurant Name: {this.state.restaurantInfo.name}</h2>
+                        <p>Neighborhood: {this.state.restaurantInfo.neighborhood}</p>
+                        <p>Cuisine: {this.state.restaurantInfo.cuisine}</p>
                         <p>Address: {this.state.restaurantInfo.address}</p>
                         <p>Cost: {this.state.restaurantInfo.cost}</p>
                     </div> :
-                    <p>no information found</p>
+                    <p>no restaurants available</p>
                 }
                 <ol>
                     <p>reviews:</p>
@@ -60,28 +59,33 @@ const Restaurant = React.createClass({
                         this.state.Reviews.map((review, index) =>
                             <li key={index}>
                                 <br/>
-                                rating: {review.rating}
+                                Rating: {review.rating}
                                 <br/>
-                                description: {review.description}
+                                Description: {review.description}
                                 <br/>
-                                date: {review.date}
+                                Date: {review.date}
                             </li>
                         ) :
-                        <p>no reviews found</p>
+                        <p>no reviews</p>
                     }
                 </ol>
                 <form onSubmit={this.submitInfo}>
                     <p>Add new review:</p>
-                    <input type='text' placeholder='rating' onChange={this.inputChange.bind(this, 'rating')}
-                           value={this.state.rating}/>
+                    <select onChange={this.inputChange.bind(this, 'rating')}>
+                        <option value="1">*</option>
+                        <option value="2">**</option>
+                        <option value="3">***</option>
+                        <option value="4">****</option>
+                        <option value="5">*****</option>
+                    </select>
                     <br/>
-                    <input type='text' placeholder='description' onChange={this.inputChange.bind(this, 'description')}
+                    <textarea type='text' placeholder='Describe your experience' onChange={this.inputChange.bind(this, 'description')}
                            value={this.state.description}/>
                     <br/>
-                    <input type='text' placeholder='date' onChange={this.inputChange.bind(this, 'date')}
+                    <input type='date' placeholder='date' onChange={this.inputChange.bind(this, 'date')}
                            value={this.state.date}/>
                     <br/>
-                    <input type='submit' value='Submit'/>
+                    <input type='submit' value='Submit Review'/>
                 </form>
             </div>
         )

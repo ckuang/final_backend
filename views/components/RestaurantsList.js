@@ -61,7 +61,7 @@ const RestaurantsList = React.createClass({
                                         </li>
                                 )
                             ) :
-                            <p>no restaurantList found</p>
+                            <p>no restaurantList</p>
                     }
                 </ol>
                 <form onSubmit={this.submitInfo}>

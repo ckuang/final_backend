@@ -26620,31 +26620,25 @@
 	        return _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(
-	                'p',
-	                null,
-	                'Restaurant :',
-	                this.state.name
-	            ),
 	            this.state.restaurantInfo ? _react2.default.createElement(
 	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    'p',
+	                    'h2',
 	                    null,
-	                    'name: ',
+	                    'Restaurant Name: ',
 	                    this.state.restaurantInfo.name
 	                ),
 	                _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'neighborhood: ',
+	                    'Neighborhood: ',
 	                    this.state.restaurantInfo.neighborhood
 	                ),
 	                _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'cuisine: ',
+	                    'Cuisine: ',
 	                    this.state.restaurantInfo.cuisine
 	                ),
 	                _react2.default.createElement(
@@ -26662,7 +26656,7 @@
 	            ) : _react2.default.createElement(
 	                'p',
 	                null,
-	                'no information found'
+	                'no restaurants available'
 	            ),
 	            _react2.default.createElement(
 	                'ol',
@@ -26677,19 +26671,19 @@
 	                        'li',
 	                        { key: index },
 	                        _react2.default.createElement('br', null),
-	                        'rating: ',
+	                        'Rating: ',
 	                        review.rating,
 	                        _react2.default.createElement('br', null),
-	                        'description: ',
+	                        'Description: ',
 	                        review.description,
 	                        _react2.default.createElement('br', null),
-	                        'date: ',
+	                        'Date: ',
 	                        review.date
 	                    );
 	                }) : _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'no reviews found'
+	                    'no reviews'
 	                )
 	            ),
 	            _react2.default.createElement(
@@ -26700,16 +26694,43 @@
 	                    null,
 	                    'Add new review:'
 	                ),
-	                _react2.default.createElement('input', { type: 'text', placeholder: 'rating', onChange: this.inputChange.bind(this, 'rating'),
-	                    value: this.state.rating }),
+	                _react2.default.createElement(
+	                    'select',
+	                    { onChange: this.inputChange.bind(this, 'rating') },
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '1' },
+	                        '*'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '2' },
+	                        '**'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '3' },
+	                        '***'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '4' },
+	                        '****'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '5' },
+	                        '*****'
+	                    )
+	                ),
 	                _react2.default.createElement('br', null),
-	                _react2.default.createElement('input', { type: 'text', placeholder: 'description', onChange: this.inputChange.bind(this, 'description'),
+	                _react2.default.createElement('textarea', { type: 'text', placeholder: 'Describe your experience', onChange: this.inputChange.bind(this, 'description'),
 	                    value: this.state.description }),
 	                _react2.default.createElement('br', null),
-	                _react2.default.createElement('input', { type: 'text', placeholder: 'date', onChange: this.inputChange.bind(this, 'date'),
+	                _react2.default.createElement('input', { type: 'date', placeholder: 'date', onChange: this.inputChange.bind(this, 'date'),
 	                    value: this.state.date }),
 	                _react2.default.createElement('br', null),
-	                _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	                _react2.default.createElement('input', { type: 'submit', value: 'Submit Review' })
 	            )
 	        );
 	    }
@@ -37048,7 +37069,7 @@
 	                }) : _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'no restaurantList found'
+	                    'no restaurantList'
 	                )
 	            ),
 	            _react2.default.createElement(
