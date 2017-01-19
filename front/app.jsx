@@ -1,25 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
-import Restaurant from './newRestaurant.jsx';
+import newRestaurant from './newRestaurant.jsx';
 import Review from './newReview.jsx';
-import oneRestaurant from './oneRestaurant.jsx';
-import infoRestaurant from './infoRestaurant.jsx';
+import RestaurantInfo from './restaurantsINFO.jsx';
+import Restaurants from './oneRestaurant.jsx';
 
-
-
-var App = React.createClass({
-  render: function(){
-    return(
-    	<div>
-      Is it working 
-      </div>
-    )
-  }
-})
-
+const App = (props) => {
+   return (
+     <div>
+     <h2> Yalp Restaurants</h2>
+    {props.children}
+     </div>
+   )
+};
 ReactDOM.render(
-  <Router history={browserHistory}>
-  </Router>,
-  document.getElementById('root'))
-    
+ <Router history={browserHistory}>
+   <Route path='/' component={App}>
+     <IndexRoute component={Restaurants} />
+     <Route path='/restaurants/:id' component={RestaurantInfo}/>
+   </Route>
+ </Router>,
+document.getElementById('root'))
+
+
