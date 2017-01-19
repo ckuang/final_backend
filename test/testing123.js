@@ -64,7 +64,13 @@ describe('Yalp', () => {
 
   describe('/POST restaurant functionality', () => {
       it('route should POST a restaurant', (done) => {
-        let restaurant = restaurants[1]
+        let restaurant = {
+          name: "Serafina",
+          neighborhood: "Harlem",
+          cuisine: "Italian",
+          address: "Columbia School of Law Campus",
+          cost: 100
+        }
         chai.request(server)
             .post('/api/restaurants')
             .send(restaurant)
@@ -82,7 +88,11 @@ describe('Yalp', () => {
 
   describe('/POST review route', () => {
       it('server should have a /api/restaurant/:id route', (done) => {
-        let review = reviews[0]
+        let review = {
+          rating: 5,
+          date: '10/10/10',
+          description: "Best Restaurant ever!"
+        }
         chai.request(server)
             .post('/api/review')
             .send(review)
