@@ -8,6 +8,8 @@ var Parent = React.createClass({
 		return (
 			<div>
 				<h1>Yelp Final!</h1>
+				<hr />
+				Yelp Yelp!
 			</div>
 		)
 	}
