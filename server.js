@@ -8,6 +8,7 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json())
 app.use(express.static('public'))
 
+app.use('/api', require('./routes'));
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/views/index.html'))
