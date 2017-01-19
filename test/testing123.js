@@ -37,6 +37,10 @@ describe('Yalp', () => {
       });
   });
 
+
+
+
+//IM HERE
   describe('/GET restaurants functionality', () => {
       it('route should GET all the restaurants', (done) => {
         chai.request(server)
@@ -49,12 +53,14 @@ describe('Yalp', () => {
       });
   });
 
-  describe('/POST restaurant route', () => {
+
+//ANOTHER TEST
+  describe('/POST restaurants route', () => {
       it('server should have a /api/restaurants POST route', (done) => {
         let restaurant = restaurants[1]
         chai.request(server)
             .post('/api/restaurants')
-            .send(restaurant)
+            .send(restaurants)
             .end((err, res) => {
                 res.should.have.status(200);
               done();
