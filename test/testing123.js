@@ -1,8 +1,8 @@
 process.env.NODE_ENV = 'test';
 
 let models = require('../models')
-let Restaurant = models.Restaurant;
-let Review = models.Review;
+let Restaurant = models.restaurant;
+let Review = models.review;
 
 //Require the dev-dependencies
 let chai = require('chai');
@@ -81,7 +81,7 @@ describe('Yalp', () => {
   });
 
   describe('/POST review route', () => {
-      it('server should have a /api/restaurant/:id route', (done) => {
+      it('server should have a /api/review POST route', (done) => {
         let review = reviews[0]
         chai.request(server)
             .post('/api/review')
@@ -132,8 +132,8 @@ describe('Yalp', () => {
                 res.body.should.have.property('cuisine');
                 res.body.should.have.property('address');
                 res.body.should.have.property('cost');
-                res.body.Reviews.should.be.a('array');
-                res.body.Reviews.length.should.be.eql(2);
+                res.body.reviews.should.be.a('array');
+                res.body.reviews.length.should.be.eql(2);
               done();
             });
       });
